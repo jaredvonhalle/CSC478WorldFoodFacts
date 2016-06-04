@@ -1,0 +1,11 @@
+Regression Analysis Writeup
+
+The data contains a particular feature called "nutrition_score_uk_100g". This field contains a numerical score determined by the UK Food Standards Administration (FSA). This led us to ask the question "Can we predict the nutrition score based on the nutriments listed for the food"? Because this score was numeric, regression analysis was used. 
+
+We limited the data to all the nutriment values which are also all numeric and the target dataset was the nutrition score. We then filtered out all the rows in the dataset that had no nutrition score because those rows would not be helpful for building and testing a regression model. Any nutriment value that was still null was filled with 0 to signify that there is none of that particular nutriment in the food. 
+
+The first thing we tried to do was use linear regression to predic the score. After performing linear regression on the training set we attained an root mean squared error of only 4.6161 and after plotting the regression line, we saw that there was a great fit. A rsme of 4.6 felt good because the scores ranged anywhere from 37 to -14. However, when we applied linear regression using 10-fold cross validation, our rsme skyrocketed to 1418.3! This led us to conclude that simple linear regression was not the tool needed for the job. 
+
+The next thing we did was try 3 other linear regression models in parrellel to find the best linear regression and alpha combination. We used lasso, ridge and elastic-net to try to get a better model than linear regression. We believed that the reason linear regression was not good was because the data was pretty sparse and we were overfitting to training data. Ridge, Lasso and Elastic-Net regression models are better at handling sparse datasets. We calculated rsme on the dataset with the 3 different regression models and 50 different alpha values between 0.01 and 0.5. The output can be seen on the attached ipynb file for regression.
+
+The best regression model/alpha value turned out to be Lasso regression with an alpha value of 0.23. The rsme turned out to be 4.709 for the chosen combination. Lasso regression was highly successful at predicting the nutrition score.
