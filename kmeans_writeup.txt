@@ -1,0 +1,7 @@
+kMeans clustering
+
+A feature that we found interesting in the dataset is "main_category_en". From what we could tell, that feature is a subjective classification for a particular food. We assume the person adding the food to the dataset would choose whatever they thought would fit as the main category for that food. This led us to ask whether or not we could group particular foods into categories based on nutriment values and we decided to do this in an unsupervised manner using kMeans clustering. 
+
+The first thing we did to prepare the data was to select 12 categories of food that had a sample size of over 1000. We did not want to try and classify into too many categories and we wanted enough data to make sure we didn't overfit to outliers. Once we did that, we ended up with a group of 12 categories to use and we shrunk the full dataset to limit it to those 12 categories. Again we took all the nutriment values in that limited dataset as the data that we would train on. We converted the categories from strings to integers so we could compare the predicted clusters with the actual clusters. We trained the dataset using kMeans with an initialization method of k-means++ and iterated 20 times on the data. Once we fit the training set, we predicted the clustering of the training data and compared that with the clusters of the 12 unique categories. 
+
+The resulting completeness score was a measly 0.19 and the homogeneity score was also a low 0.17. This tells us that its difficult to cluster the foods based simply on nutriment values.
