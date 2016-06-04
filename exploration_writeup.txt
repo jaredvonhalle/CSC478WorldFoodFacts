@@ -1,0 +1,14 @@
+General Data Exploration
+
+In order to get a general feel for the dataset that we chose, we decided to look at the differences between countries in terms of various nutriment features. Each row in the dataset represents a particular food. The features include countries in which it is sold, nutriment values per 100 grams, standardized nutrition scores, ingredients, etc. All in all, there are over 150 features that describe 1 particular food. The first thing we noticed about the data set was that it was very sparse. A large portion of the foods had no nutriment information at all so we knew from the get go that the sparse-ness of the data could be a major obstacle for us. 
+
+The first thing we did to get used to working with the data was to split the information based on countries in which the food is sold. There is a feature called "countries_en" that lists all the countries in which the food is sold in. The first task was to find a group of unique country names that we could work with. The countries we chose to use were based on how many different foods for that country had values for the nutriment that we wanted to compare countries by. We created a python function in the "utilities.py" file. This method is called "compareCountriesByNutrimentAverage" and it takes in the full dataset, the unique country names, and the nutriment we want to compare each country by. 
+
+The function outputs a pandas dataframe that contains the chosen nutriment averages for all the countries that we chose. Below are the plots that we generated. The nutriments that we chose were: sugars, energy, sodium, fat, proteins, and carbohydrates. 
+
+We were able to glean some interesting observations from the data by doing this.
+	Austria has by and far the most sodium per 100 grams of food
+	Tunisia has significantly more fat per 100 grams than any of the other countries and thus also had the most energy per 100 grams of food
+	The United States was never the worst country for any of the categories we chose but consistently fell in the top 25%
+
+Also, out of curiosity we looked at what the most sugary food listed for the US was and it turned out to be a lemon candy called "Super Lemon"... who knew?
